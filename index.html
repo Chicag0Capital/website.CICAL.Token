@@ -5,43 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chicago Capital ($CICAL)</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade-slide {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-slide.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans">
 
-  <!-- Header -->
-  <header class="flex flex-col items-center py-8 bg-gray-800 shadow-md">
+  <!-- Header / Hero -->
+  <header class="flex flex-col items-center py-12 bg-gradient-to-r from-yellow-600 via-amber-400 to-yellow-600 shadow-lg">
     <img src="https://turquoise-negative-scorpion-35.mypinata.cloud/ipfs/bafybeid73ig5rkng2uoqtgldsxymnkhph32lqyirdchdzdcflnvu4kkbnq" 
-         alt="CICAL Logo" class="w-32 h-32 mb-3">
-    <h1 class="text-5xl font-bold text-amber-400 mb-2">Chicago Capital ($CICAL)</h1>
-    <p class="text-gray-400 text-center max-w-2xl">
-      A BSC community token focused on trust, transparency, and sustainable growth.  
+         alt="CICAL Logo" class="w-36 h-36 mb-4 transform hover:scale-110 transition duration-500">
+    <h1 class="text-5xl font-bold text-gray-900 mb-2">Chicago Capital ($CICAL)</h1>
+    <p class="text-gray-900 text-center max-w-2xl">
+      A BSC community token focused on trust, transparency, and sustainable growth.
       Fees are invested to reward holders, fund marketing, liquidity, staking, and community incentives.
     </p>
 
     <!-- CTA Buttons -->
     <div class="flex flex-wrap justify-center gap-4 mt-6">
       <a href="https://pancakeswap.finance/swap?outputCurrency=0xFAF994EBf5598BDC70f157957957333Ffc687b09" target="_blank"
-         class="px-6 py-3 bg-amber-500 text-black font-bold rounded-lg hover:bg-amber-400 transition">Buy $CICAL</a>
+         class="px-6 py-3 bg-amber-500 text-black font-bold rounded-lg hover:bg-amber-400 transform hover:scale-105 transition duration-300">
+         Buy $CICAL
+      </a>
       <a href="https://t.me/Chicag0_Capital" target="_blank"
-         class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition">Telegram</a>
+         class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transform hover:scale-105 transition duration-300">
+         Telegram
+      </a>
       <a href="https://x.com/Chicag0Capital" target="_blank"
-         class="px-6 py-3 bg-blue-400 text-black font-bold rounded-lg hover:bg-blue-300 transition">Twitter</a>
-      <a href="https://chicag0capital.github.io/Burn.Tracker/" target="_blank"
-         class="px-6 py-3 bg-red-500 text-white font-bold rounded-lg hover:bg-red-400 transition">Burn Tracker 🔥</a>
+         class="px-6 py-3 bg-blue-400 text-black font-bold rounded-lg hover:bg-blue-300 transform hover:scale-105 transition duration-300">
+         Twitter
+      </a>
     </div>
   </header>
 
   <!-- About Token -->
-  <section class="mt-12 max-w-4xl mx-auto px-6">
+  <section class="mt-12 max-w-4xl mx-auto px-6 fade-slide">
     <h2 class="text-3xl font-bold text-amber-400 mb-4">About Chicago Capital</h2>
     <p class="text-gray-400 mb-4">
       $CICAL is a token on Binance Smart Chain (BSC) with a total supply of 1,000,000,000.  
       Transaction fees are structured as follows:
     </p>
-    <ul class="list-disc list-inside text-gray-400 mb-6">
-      <li>🔥 1% Burn (stops at 10,000,000 tokens)</li>
-      <li>💎 1% Reflection to holders</li>
-      <li>💰 1% Dev / Fee wallet for community and growth</li>
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-400 mb-6">
+      <li class="bg-gray-800 p-4 rounded-lg shadow-md text-center transform transition duration-500 hover:scale-105">🔥 1% Burn (stops at 10,000,000 tokens)</li>
+      <li class="bg-gray-800 p-4 rounded-lg shadow-md text-center transform transition duration-500 hover:scale-105">💎 1% Reflection to holders</li>
+      <li class="bg-gray-800 p-4 rounded-lg shadow-md text-center transform transition duration-500 hover:scale-105">💰 1% Dev / Fee wallet for community and growth</li>
     </ul>
     <p class="text-gray-400">
       Part of the collected fees are used for investments. Returns from these investments are used to buy back tokens, fund airdrops, increase liquidity, support staking rewards, marketing, and other community growth activities.
@@ -49,7 +67,7 @@
   </section>
 
   <!-- CICAL Growth Loop -->
-  <section class="mt-12 max-w-4xl mx-auto px-6">
+  <section class="mt-12 max-w-4xl mx-auto px-6 fade-slide">
     <h2 class="text-3xl font-bold text-amber-400 mb-4">CICAL Growth Loop</h2>
     <p class="text-gray-400 mb-4">
       1️⃣ Transaction fees collected → partially invested. <br>
@@ -59,19 +77,78 @@
   </section>
 
   <!-- Wallet Addresses -->
-  <section class="mt-12 max-w-4xl mx-auto px-6">
+  <section class="mt-12 max-w-4xl mx-auto px-6 fade-slide">
     <h2 class="text-3xl font-bold text-amber-400 mb-4">Important Wallets</h2>
-    <ul class="text-gray-400 mb-6">
-      <li>🟢 <strong>Fee Wallet:</strong> <a href="https://bscscan.com/address/0x7D139Cf2C8db6D4a5c85132099218343D96cF29f" class="text-blue-400 hover:underline" target="_blank">0x7D139Cf2C8db6D4a5c85132099218343D96cF29f</a></li>
-      <li>🔵 <strong>Investment / Buyback Wallet:</strong> <a href="https://bscscan.com/address/0x388d615F4696d405C2e81017c6E6c6091DF5Ee69" class="text-blue-400 hover:underline" target="_blank">0x388d615F4696d405C2e81017c6E6c6091DF5Ee69</a></li>
-    </ul>
-    <p class="text-gray-400">These wallets are used for managing community growth, rewards, liquidity, and marketing.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-gray-800 p-4 rounded-lg shadow-md text-center transform transition duration-500 hover:scale-105">
+        🟢 <strong>Fee Wallet:</strong><br>
+        <a href="https://bscscan.com/address/0x7D139Cf2C8db6D4a5c85132099218343D96cF29f" class="text-blue-400 hover:underline" target="_blank">
+          0x7D139Cf2C8db6D4a5c85132099218343D96cF29f
+        </a>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-lg shadow-md text-center transform transition duration-500 hover:scale-105">
+        🔵 <strong>Investment / Buyback Wallet:</strong><br>
+        <a href="https://bscscan.com/address/0x388d615F4696d405C2e81017c6E6c6091DF5Ee69" class="text-blue-400 hover:underline" target="_blank">
+          0x388d615F4696d405C2e81017c6E6c6091DF5Ee69
+        </a>
+      </div>
+    </div>
+    <p class="text-gray-400 mt-4 text-center">These wallets are used for managing community growth, rewards, liquidity, and marketing.</p>
+  </section>
+
+  <!-- Live Charts & Trackers -->
+  <section class="mt-12 text-center max-w-4xl mx-auto px-6 fade-slide">
+    <h2 class="text-3xl font-bold text-amber-400 mb-6">Live Charts & Trackers</h2>
+    <p class="text-gray-400 mb-6">
+      Check real-time data, charts, and community stats for $CICAL.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="https://www.coinscope.co/coin/cical" target="_blank"
+         class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transform hover:scale-105 transition duration-300">
+         CoinScope 💎
+      </a>
+      <a href="https://coinhunt.cc/coin/68f535166e1e236b02f4cf2a" target="_blank"
+         class="px-6 py-3 bg-blue-400 text-black font-bold rounded-lg hover:bg-blue-300 transform hover:scale-105 transition duration-300">
+         CoinHunt 🚀
+      </a>
+      <a href="https://coinsniper.net/coin/86706" target="_blank"
+         class="px-6 py-3 bg-purple-600 text-white font-bold rounded-lg hover:bg-purple-500 transform hover:scale-105 transition duration-300">
+         CoinSniper 🕵️
+      </a>
+      <a href="https://top100token.com/binance/0xFAF994EBf5598BDC70f157957957333Ffc687b09" target="_blank"
+         class="px-6 py-3 bg-gray-700 text-white font-bold rounded-lg hover:bg-gray-600 transform hover:scale-105 transition duration-300">
+         Top100Token 🔝
+      </a>
+      <a href="https://dexscreener.com/bsc/0xa8b87477eaace8b934442184219E55C8a532ff07" target="_blank"
+         class="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-500 transform hover:scale-105 transition duration-300">
+         Dexscreener 📈
+      </a>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer class="mt-16 py-6 text-center text-gray-500 text-sm bg-gray-800">
     © 2025 CICAL Project — Transparency. Community. Growth. 💫
   </footer>
+
+  <!-- Animate sections on scroll -->
+  <script>
+    const faders = document.querySelectorAll('.fade-slide');
+    const options = { threshold: 0.2 };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 
 </body>
 </html>
