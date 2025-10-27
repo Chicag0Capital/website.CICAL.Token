@@ -6,54 +6,37 @@
   <title>Chicago Capital ($CICAL)</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
-    body { background-color: #0a0a0a; color: #fff; scroll-behavior: smooth; }
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; scroll-behavior: smooth; }
+    body { background-color: #0a0a0a; color: #fff; }
     a { color: inherit; text-decoration: none; }
-    
+
     /* Navigation */
     nav { position: fixed; top: 0; left: 0; width: 100%; background-color: #111; display: flex; justify-content: center; padding: 12px 0; z-index: 100; border-bottom: 1px solid #222; }
     nav a { margin: 0 15px; font-weight: bold; color: #FFD700; transition: 0.3s; }
     nav a:hover { color: #FFC700; }
+
     body { padding-top: 60px; }
 
     /* Header */
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(135deg, #111111, #1a1a1a);
-      padding: 0 20px;
-    }
+    header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #111111, #1a1a1a); padding: 0 20px; transition: 0.5s; }
+    header:hover { background: linear-gradient(135deg, #111111, #222222); }
     header img { width: 160px; margin-bottom: 20px; transition: transform 0.3s; }
     header img:hover { transform: scale(1.1); }
     header h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 10px; color: #FFD700; text-shadow: 0 0 5px #FFD700; }
     header p { font-size: 1.2rem; margin-bottom: 25px; max-width: 600px; line-height: 1.5; }
     .cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .cta-buttons a {
-      padding: 12px 26px;
-      border-radius: 10px;
-      font-weight: bold;
-      background: #FFD700;
-      color: #000;
-      transition: 0.3s;
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
-      font-size: 0.95rem;
-    }
-    .cta-buttons a:hover {
-      background: #FFC700;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(255, 215, 0, 0.7);
-    }
+    .cta-buttons a { padding: 12px 26px; border-radius: 10px; font-weight: bold; background: #FFD700; color: #000; transition: all 0.3s; box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5); font-size: 0.95rem; }
+    .cta-buttons a:hover { background: #FFC700; transform: translateY(-3px) scale(1.05); box-shadow: 0 6px 16px rgba(255, 215, 0, 0.7); }
 
     /* Sections */
-    section { padding: 80px 20px; max-width: 1000px; margin: auto; }
+    section { padding: 80px 20px; max-width: 1000px; margin: auto; transition: transform 0.3s, background 0.3s; border-radius: 12px; }
+    section:hover { transform: translateY(-5px); background: rgba(255,255,255,0.03); }
     section h2 { font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 20px; color: #FFD700; text-shadow: 0 0 3px #FFD700; }
     section p { font-size: 1.1rem; margin-bottom: 15px; line-height: 1.6; }
     ul { margin-left: 25px; }
     ul li { margin-bottom: 10px; }
+
     .wallet { background-color: #1a1a1a; padding: 10px 15px; border-radius: 8px; margin-bottom: 15px; word-break: break-all; font-family: monospace; }
 
     /* Footer */
@@ -86,7 +69,7 @@
     <a href="https://pancakeswap.finance/swap?outputCurrency=0xFAF994EBf5598BDC70f157957957333Ffc687b09" target="_blank">Buy $CICAL</a>
     <a href="https://t.me/Chicag0_Capital" target="_blank">Join Telegram</a>
     <a href="https://x.com/Chicag0Capital" target="_blank">Follow X/Twitter</a>
-    <a href="https://chicagocapital.github.io/CICAL-Burn-Tracker/" target="_blank">Burn Tracker</a>
+    <a href="https://chicag0capital.github.io/Burn.Tracker/" target="_blank">Burn Tracker</a>
   </div>
 </header>
 
@@ -101,11 +84,10 @@
   <p><strong>Total Supply:</strong> 1,000,000,000 CICAL</p>
   <p><strong>Transaction Tax:</strong> 3%</p>
   <ul>
-    <li>🔥 1% Burn (until 10M supply remains) — <a href="https://chicagocapital.github.io/CICAL-Burn-Tracker/" target="_blank">Check Burn Tracker</a></li>
+    <li>🔥 1% Burn (until 10M supply remains) — <a href="https://chicag0capital.github.io/Burn.Tracker/" target="_blank">Check Burn Tracker</a></li>
     <li>💎 1% Rewards to Holders</li>
     <li>💼 1% Investment Wallet</li>
   </ul>
-  <p><em>Profits from investments are used for buybacks and distributed to holders and the community through the <strong>CICAL Growth Loop</strong>.</em></p>
 
   <h3>Important Wallets</h3>
   <p>💰 <strong>Fee Collection Wallet:</strong></p>
@@ -124,7 +106,6 @@
     <li>3️⃣ Profits are used for buyback and community rewards.</li>
     <li>4️⃣ Redistributed tokens strengthen holder value and liquidity.</li>
   </ul>
-  <p>The <strong>CICAL Growth Loop</strong> ensures continuous circulation of value between the project, investors, and the community.</p>
 </section>
 
 <section id="community">
@@ -134,7 +115,7 @@
     <li>Telegram: <a href="https://t.me/Chicag0_Capital" target="_blank">https://t.me/Chicag0_Capital</a></li>
     <li>X/Twitter: <a href="https://x.com/Chicag0Capital" target="_blank">https://x.com/Chicag0Capital</a></li>
     <li>Buy on PancakeSwap: <a href="https://pancakeswap.finance/swap?outputCurrency=0xFAF994EBf5598BDC70f157957957333Ffc687b09" target="_blank">Buy $CICAL</a></li>
-    <li>Chart: <a href="https://dexscreener.com/bsc/0xa8b87477eaace8b934442184219e55c8a532ff07" target="_blank">DexScreener</a></li>
+    <li>DexScreener: <a href="https://dexscreener.com/bsc/0xa8b87477eaace8b934442184219e55c8a532ff07" target="_blank">DexScreener Chart</a></li>
     <li>CoinScope: <a href="https://www.coinscope.co/coin/cical" target="_blank">https://www.coinscope.co/coin/cical</a></li>
     <li>CoinHunt: <a href="https://coinhunt.cc/coin/2778461791" target="_blank">https://coinhunt.cc/coin/2778461791</a></li>
   </ul>
