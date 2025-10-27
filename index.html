@@ -3,127 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chicago Capital ($CICAL)</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
-  <style>
-    /* Basic Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; scroll-behavior: smooth; }
-    body { background-color: #0a0a0a; color: #fff; }
-    a { color: inherit; text-decoration: none; }
-
-    /* Navigation */
-    nav { position: fixed; top: 0; left: 0; width: 100%; background-color: #111; display: flex; justify-content: center; padding: 12px 0; z-index: 100; border-bottom: 1px solid #222; }
-    nav a { margin: 0 15px; font-weight: bold; color: #FFD700; transition: 0.3s; }
-    nav a:hover { color: #FFC700; }
-
-    body { padding-top: 60px; }
-
-    /* Header */
-    header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #111111, #1a1a1a); padding: 0 20px; transition: 0.5s; }
-    header:hover { background: linear-gradient(135deg, #111111, #222222); }
-    header img { width: 160px; margin-bottom: 20px; transition: transform 0.3s; }
-    header img:hover { transform: scale(1.1); }
-    header h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 10px; color: #FFD700; text-shadow: 0 0 5px #FFD700; }
-    header p { font-size: 1.2rem; margin-bottom: 25px; max-width: 600px; line-height: 1.5; }
-    .cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .cta-buttons a { padding: 12px 26px; border-radius: 10px; font-weight: bold; background: #FFD700; color: #000; transition: all 0.3s; box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5); font-size: 0.95rem; }
-    .cta-buttons a:hover { background: #FFC700; transform: translateY(-3px) scale(1.05); box-shadow: 0 6px 16px rgba(255, 215, 0, 0.7); }
-
-    /* Sections */
-    section { padding: 80px 20px; max-width: 1000px; margin: auto; transition: transform 0.3s, background 0.3s; border-radius: 12px; }
-    section:hover { transform: translateY(-5px); background: rgba(255,255,255,0.03); }
-    section h2 { font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 20px; color: #FFD700; text-shadow: 0 0 3px #FFD700; }
-    section p { font-size: 1.1rem; margin-bottom: 15px; line-height: 1.6; }
-    ul { margin-left: 25px; }
-    ul li { margin-bottom: 10px; }
-
-    .wallet { background-color: #1a1a1a; padding: 10px 15px; border-radius: 8px; margin-bottom: 15px; word-break: break-all; font-family: monospace; }
-
-    /* Footer */
-    footer { background-color: #111; text-align: center; padding: 25px 20px; font-size: 0.9rem; border-top: 1px solid #222; }
-    footer a { color: #FFD700; transition: 0.3s; }
-    footer a:hover { color: #FFC700; }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      header h1 { font-size: 2.2rem; }
-      header p { font-size: 1rem; }
-      .cta-buttons a { padding: 10px 20px; font-size: 0.9rem; }
-    }
-  </style>
+  <title>CICAL Burn Tracker 🔥</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
+<body class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col items-center justify-center p-6">
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#tokenomics">Tokenomics</a>
-  <a href="#growth-loop">Growth Loop</a>
-  <a href="#community">Community</a>
-</nav>
+  <header class="w-full flex justify-between items-center mb-8">
+    <h1 class="text-3xl md:text-5xl font-bold text-amber-400">🔥 CICAL Burn Tracker</h1>
+    <!-- Tombol Back to Homepage -->
+    <a href="https://chicag0capital.github.io/" 
+       class="px-4 py-2 bg-amber-500 text-black font-bold rounded-lg hover:bg-amber-400 transition">
+      ⬅ Back to Homepage
+    </a>
+  </header>
 
-<header>
-  <img src="https://turquoise-negative-scorpion-35.mypinata.cloud/ipfs/bafybeid73ig5rkng2uoqtgldsxymnkhph32lqyirdchdzdcflnvu4kkbnq" alt="CICAL Logo">
-  <h1>Chicago Capital ($CICAL)</h1>
-  <p>Community Token Built on Trust and Transparency</p>
-  <div class="cta-buttons">
-    <a href="https://pancakeswap.finance/swap?outputCurrency=0xFAF994EBf5598BDC70f157957957333Ffc687b09" target="_blank">Buy $CICAL</a>
-    <a href="https://t.me/Chicag0_Capital" target="_blank">Join Telegram</a>
-    <a href="https://x.com/Chicag0Capital" target="_blank">Follow X/Twitter</a>
-    <a href="https://chicag0capital.github.io/Burn.Tracker/" target="_blank">Burn Tracker</a>
+  <p class="text-center text-gray-400 mb-8 max-w-xl">Tracking total supply and burned tokens in real time for $CICAL.</p>
+
+  <div class="bg-gray-800 rounded-2xl shadow-xl p-6 w-full max-w-2xl">
+    <div id="loading" class="text-center text-lg text-gray-400">Fetching data from the blockchain...</div>
+    <div id="content" class="hidden">
+      <p class="text-lg mb-2">💎 <strong>Initial Total Supply:</strong> 1,000,000,000 CICAL</p>
+      <p class="text-lg mb-2">🔥 <strong>Burned Tokens:</strong> <span id="burned" class="text-red-400">0</span> CICAL</p>
+      <p class="text-lg mb-2">🔹 <strong>Remaining Supply:</strong> <span id="remaining" class="text-green-400">0</span> CICAL</p>
+      <p class="text-lg mb-2">🪙 <strong>Contract:</strong> <a href="https://bscscan.com/token/0xFAF994EBf5598BDC70f157957957333Ffc687b09" class="text-blue-400 hover:underline" target="_blank">0xFAF994EBf5598BDC70f157957957333Ffc687b09</a></p>
+      <p class="text-lg mb-6">📊 Data updates every 30 seconds</p>
+
+      <canvas id="burnChart" height="100"></canvas>
+    </div>
   </div>
-</header>
 
-<section id="about">
-  <h2>About CICAL</h2>
-  <p><strong>Chicago Capital ($CICAL)</strong> is a community-driven BSC token built on trust, transparency, and sustainable growth. Our mission is to create long-term value for holders and build one of the most trusted communities on the Binance Smart Chain.</p>
-  <p><strong>Smart Contract:</strong> <code>0xFAF994EBf5598BDC70f157957957333Ffc687b09</code></p>
-</section>
+  <footer class="text-gray-500 mt-10 text-center text-sm">
+    © 2025 CICAL Project — Transparency. Community. Growth. 💫
+  </footer>
 
-<section id="tokenomics">
-  <h2>Tokenomics</h2>
-  <p><strong>Total Supply:</strong> 1,000,000,000 CICAL</p>
-  <p><strong>Transaction Tax:</strong> 3%</p>
-  <ul>
-    <li>🔥 1% Burn (until 10M supply remains) — <a href="https://chicag0capital.github.io/Burn.Tracker/" target="_blank">Check Burn Tracker</a></li>
-    <li>💎 1% Rewards to Holders</li>
-    <li>💼 1% Investment Wallet</li>
-  </ul>
+  <script>
+    const API_KEY = "EPYTEB7XIHPZK9R6FJ1I7T5G84GB94DBAA"; // etherscan / bscscan API key
+    const CONTRACT = "0xFAF994EBf5598BDC70f157957957333Ffc687b09";
+    const DECIMALS = 18;
+    const INITIAL_SUPPLY = 1_000_000_000; // 1 billion total supply
 
-  <h3>Important Wallets</h3>
-  <p>💰 <strong>Fee Collection Wallet:</strong></p>
-  <div class="wallet">0x7D139Cf2C8db6D4a5c85132099218343D96cF29f</div>
-  
-  <p>🏦 <strong>Investment / Buyback & Community Rewards Wallet:</strong></p>
-  <div class="wallet">0x388d615F4696d405C2e81017c6E6c6091DF5Ee69</div>
-</section>
+    async function getSupply() {
+      const url = `https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=${CONTRACT}&apikey=${API_KEY}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.status !== "1") throw new Error("Failed to load data");
+      const raw = parseFloat(data.result) / (10 ** DECIMALS);
+      return raw;
+    }
 
-<section id="growth-loop">
-  <h2>CICAL Growth Loop</h2>
-  <p><strong>A Sustainable Ecosystem for Real Growth</strong></p>
-  <ul>
-    <li>1️⃣ Each transaction adds to the fee collection wallet.</li>
-    <li>2️⃣ Funds are moved to the investment wallet for buybacks, airdrops, liquidity addition, staking rewards, marketing, and community incentives.</li>
-    <li>3️⃣ Profits are used for buyback and community rewards.</li>
-    <li>4️⃣ Redistributed tokens strengthen holder value and liquidity.</li>
-  </ul>
-</section>
+    async function updateData() {
+      try {
+        const totalSupply = await getSupply();
+        const burned = INITIAL_SUPPLY - totalSupply;
+        const remaining = totalSupply;
 
-<section id="community">
-  <h2>Join the Community</h2>
-  <p>Be part of one of the most transparent and fast-growing crypto communities!</p>
-  <ul>
-    <li>Telegram: <a href="https://t.me/Chicag0_Capital" target="_blank">https://t.me/Chicag0_Capital</a></li>
-    <li>X/Twitter: <a href="https://x.com/Chicag0Capital" target="_blank">https://x.com/Chicag0Capital</a></li>
-    <li>Buy on PancakeSwap: <a href="https://pancakeswap.finance/swap?outputCurrency=0xFAF994EBf5598BDC70f157957957333Ffc687b09" target="_blank">Buy $CICAL</a></li>
-    <li>DexScreener: <a href="https://dexscreener.com/bsc/0xa8b87477eaace8b934442184219e55c8a532ff07" target="_blank">DexScreener Chart</a></li>
-    <li>CoinScope: <a href="https://www.coinscope.co/coin/cical" target="_blank">https://www.coinscope.co/coin/cical</a></li>
-    <li>CoinHunt: <a href="https://coinhunt.cc/coin/2778461791" target="_blank">https://coinhunt.cc/coin/2778461791</a></li>
-  </ul>
-</section>
+        document.getElementById("loading").classList.add("hidden");
+        document.getElementById("content").classList.remove("hidden");
 
-<footer>
-  © 2025 <strong>Chicago Capital ($CICAL)</strong> | Built with transparency for the community
-</footer>
+        document.getElementById("burned").textContent = burned.toLocaleString("en-US");
+        document.getElementById("remaining").textContent = remaining.toLocaleString("en-US");
+
+        updateChart(burned, remaining);
+      } catch (e) {
+        document.getElementById("loading").textContent = "⚠️ Failed to fetch data.";
+        console.error(e);
+      }
+    }
+
+    let burnChart;
+    function updateChart(burned, remaining) {
+      const ctx = document.getElementById("burnChart").getContext("2d");
+      if (burnChart) burnChart.destroy();
+      burnChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['🔥 Burned', '💎 Remaining'],
+          datasets: [{
+            data: [burned, remaining],
+            backgroundColor: ['#ef4444', '#10b981']
+          }]
+        },
+        options: {
+          plugins: { legend: { labels: { color: '#fff' } } },
+          responsive: true,
+          maintainAspectRatio: false
+        }
+      });
+    }
+
+    updateData();
+    setInterval(updateData, 30000); // refresh setiap 30 detik
+  </script>
 
 </body>
 </html>
