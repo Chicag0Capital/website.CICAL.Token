@@ -3,90 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CICAL Burn Tracker 🔥</title>
+  <title>Chicago Capital ($CICAL)</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col items-center justify-center p-6">
+<body class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col items-center">
 
-  <h1 class="text-3xl md:text-5xl font-bold text-center mb-4 text-amber-400">🔥 CICAL Burn Tracker</h1>
-  <p class="text-center text-gray-400 mb-8">Tracking total supply and burned tokens in real time for $CICAL.</p>
+  <!-- Header / Logo -->
+  <header class="w-full flex flex-col items-center py-6 bg-gray-800 shadow-md">
+    <img src="https://turquoise-negative-scorpion-35.mypinata.cloud/ipfs/bafybeid73ig5rkng2uoqtgldsxymnkhph32lqyirdchdzdcflnvu4kkbnq" 
+         alt="CICAL Logo" class="w-32 h-32 mb-2">
+    <h1 class="text-4xl md:text-5xl font-bold text-amber-400">Chicago Capital ($CICAL)</h1>
+    <p class="text-gray-400 mt-2 text-center max-w-xl">
+      New BSC community token focused on trust, organic growth, and transparency.
+    </p>
+  </header>
 
-  <div class="bg-gray-800 rounded-2xl shadow-xl p-6 w-full max-w-2xl">
-    <div id="loading" class="text-center text-lg text-gray-400">Fetching data from the blockchain...</div>
-    <div id="content" class="hidden">
-      <p class="text-lg mb-2">💎 <strong>Initial Total Supply:</strong> 1,000,000,000 CICAL</p>
-      <p class="text-lg mb-2">🔥 <strong>Burned Tokens:</strong> <span id="burned" class="text-red-400">0</span> CICAL</p>
-      <p class="text-lg mb-2">🔹 <strong>Remaining Supply:</strong> <span id="remaining" class="text-green-400">0</span> CICAL</p>
-      <p class="text-lg mb-2">🪙 <strong>Contract:</strong> <a href="https://bscscan.com/token/0xFAF994EBf5598BDC70f157957957333Ffc687b09" class="text-blue-400 hover:underline" target="_blank">0xFAF994EBf5598BDC70f157957957333Ffc687b09</a></p>
-      <p class="text-lg mb-6">📊 Data updates every 30 seconds</p>
-
-      <canvas id="burnChart" height="100"></canvas>
-    </div>
+  <!-- Action Buttons -->
+  <div class="flex flex-wrap justify-center gap-4 mt-6">
+    <a href="https://pancakeswap.finance/swap?outputCurrency=0xFAF994EBf5598BDC70f157957957333Ffc687b09" target="_blank"
+       class="px-6 py-3 bg-amber-500 text-black font-bold rounded-lg hover:bg-amber-400 transition">
+      Buy $CICAL
+    </a>
+    <a href="https://t.me/Chicag0_Capital" target="_blank"
+       class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition">
+      Telegram
+    </a>
+    <a href="https://x.com/Chicag0Capital" target="_blank"
+       class="px-6 py-3 bg-blue-400 text-black font-bold rounded-lg hover:bg-blue-300 transition">
+      Twitter
+    </a>
+    <a href="https://chicag0capital.github.io/Burn.Tracker/" target="_blank"
+       class="px-6 py-3 bg-red-500 text-white font-bold rounded-lg hover:bg-red-400 transition">
+      Burn Tracker 🔥
+    </a>
   </div>
 
-  <footer class="text-gray-500 mt-10 text-center text-sm">
+  <!-- About Section -->
+  <section class="mt-12 max-w-3xl text-center px-4">
+    <h2 class="text-3xl font-bold text-amber-400 mb-4">CICAL Growth Loop</h2>
+    <p class="text-gray-400 mb-6">
+      Fees collected from transactions are partially invested. Returns from investments are used to reward holders, boost liquidity, airdrops, marketing, and staking incentives. This creates a sustainable growth loop for the community.
+    </p>
+  </section>
+
+  <footer class="text-gray-500 mt-16 mb-6 text-center text-sm">
     © 2025 CICAL Project — Transparency. Community. Growth. 💫
   </footer>
-
-  <script>
-    const API_KEY = "EPYTEB7XIHPZK9R6FJ1I7T5G84GB94DBAA"; // etherscan / bscscan API key
-    const CONTRACT = "0xFAF994EBf5598BDC70f157957957333Ffc687b09";
-    const DECIMALS = 18;
-    const INITIAL_SUPPLY = 1_000_000_000; // 1 billion total supply
-
-    async function getSupply() {
-      const url = `https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=${CONTRACT}&apikey=${API_KEY}`;
-      const res = await fetch(url);
-      const data = await res.json();
-      if (data.status !== "1") throw new Error("Failed to load data");
-      const raw = parseFloat(data.result) / (10 ** DECIMALS);
-      return raw;
-    }
-
-    async function updateData() {
-      try {
-        const totalSupply = await getSupply();
-        const burned = INITIAL_SUPPLY - totalSupply;
-        const remaining = totalSupply;
-
-        document.getElementById("loading").classList.add("hidden");
-        document.getElementById("content").classList.remove("hidden");
-
-        document.getElementById("burned").textContent = burned.toLocaleString("en-US");
-        document.getElementById("remaining").textContent = remaining.toLocaleString("en-US");
-
-        updateChart(burned, remaining);
-      } catch (e) {
-        document.getElementById("loading").textContent = "⚠️ Failed to fetch data.";
-        console.error(e);
-      }
-    }
-
-    let burnChart;
-    function updateChart(burned, remaining) {
-      const ctx = document.getElementById("burnChart").getContext("2d");
-      if (burnChart) burnChart.destroy();
-      burnChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-          labels: ['🔥 Burned', '💎 Remaining'],
-          datasets: [{
-            data: [burned, remaining],
-            backgroundColor: ['#ef4444', '#10b981']
-          }]
-        },
-        options: {
-          plugins: { legend: { labels: { color: '#fff' } } },
-          responsive: true,
-          maintainAspectRatio: false
-        }
-      });
-    }
-
-    updateData();
-    setInterval(updateData, 30000); // refresh setiap 30 detik
-  </script>
 
 </body>
 </html>
