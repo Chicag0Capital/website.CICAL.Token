@@ -46,9 +46,20 @@
     footer { background-color: #111; text-align: center; padding: 25px 20px; font-size: 0.9rem; border-top: 1px solid #222; }
     footer a { color: #FFD700; transition: 0.3s; }
     footer a:hover { color: #FFC700; }
+    nav { position: fixed; top: 0; left: 0; width: 100%; background-color: #111; display: flex; justify-content: center; padding: 12px 0; z-index: 100; border-bottom: 1px solid #222; }
+    nav a { margin: 0 15px; font-weight: bold; color: #FFD700; transition: 0.3s; }
+    nav a:hover { color: #FFC700; }
+    body { padding-top: 60px; } /* space for fixed nav */
   </style>
 </head>
 <body>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#tokenomics">Tokenomics</a>
+  <a href="#growth-loop">Growth Loop</a>
+  <a href="#community">Community</a>
+</nav>
 
 <header>
   <img src="https://turquoise-negative-scorpion-35.mypinata.cloud/ipfs/bafybeid73ig5rkng2uoqtgldsxymnkhph32lqyirdchdzdcflnvu4kkbnq" alt="CICAL Logo">
@@ -72,7 +83,7 @@
   <p><strong>Total Supply:</strong> 1,000,000,000 CICAL</p>
   <p><strong>Transaction Tax:</strong> 3%</p>
   <ul>
-    <li>🔥 1% Burn (until 10M supply remains)</li>
+    <li>🔥 1% Burn (until 10M supply remains) — <a href="https://chicagocapital.github.io/CICAL-Burn-Tracker/" target="_blank">Check Burn Tracker</a></li>
     <li>💎 1% Rewards to Holders</li>
     <li>💼 1% Investment Wallet</li>
   </ul>
