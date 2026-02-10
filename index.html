@@ -17,7 +17,14 @@
       <a href="https://t.me/Chicag0_Capital" target="_blank">Join Telegram</a>
       <a href="https://x.com/Chicag0Capital" target="_blank">Follow X/Twitter</a>
       <a href="https://pump.fun/buy/CICAL" target="_blank">Buy Token</a>
-      <a href="https://solscan.io/token/coming soon" target="_blank">CICAL Token Info</a>
+      <a href="https://solscan.io/token/111111111111111111111" target="_blank">CICAL Token Info</a>
+    </div>
+
+    <!-- Copyable Contract Address -->
+    <div class="contract-container">
+      <label for="contract">Contract Address:</label>
+      <input type="text" id="contract" value="111111111111111111111" readonly>
+      <button onclick="copyContract()">Copy</button>
     </div>
   </header>
 
@@ -44,5 +51,15 @@
     <p>© 2026 Chicago Capital. All rights reserved.</p>
     <p>Disclaimer: This token is for community purposes and does not guarantee any profit.</p>
   </footer>
+
+  <script>
+    function copyContract() {
+      const contractInput = document.getElementById("contract");
+      contractInput.select();
+      contractInput.setSelectionRange(0, 99999); // For mobile devices
+      document.execCommand("copy");
+      alert("Contract address copied: " + contractInput.value);
+    }
+  </script>
 </body>
 </html>
